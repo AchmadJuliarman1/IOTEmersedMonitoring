@@ -27,8 +27,8 @@ foreach ($lux as $l) {
 }
 
 // label
-foreach ($lux as $f) {
-	array_push($waktu, $f["waktu"]);
+foreach ($co2 as $c) {
+	array_push($waktu, $c["waktu"]);
 }
 
 $co2Data = implode(",",$co2Data);

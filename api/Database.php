@@ -14,19 +14,19 @@ class Database{
 	}
 
 	function getAllDataCo2(){
-		$sql = "SELECT co2, waktu FROM data_sensor";
+		$sql = "SELECT co2, waktu FROM data_sensor ORDER BY waktu ASC";
 		$query = mysqli_query($this->conn, $sql);
 		return mysqli_fetch_all($query, MYSQLI_ASSOC);
 	}
 
 	function getAllDataHumidity(){
-		$sql = "SELECT humidity, waktu FROM data_sensor";
+		$sql = "SELECT humidity, waktu FROM data_sensor ORDER BY waktu ASC";
 		$query = mysqli_query($this->conn, $sql);
 		return mysqli_fetch_all($query, MYSQLI_ASSOC);
 	}
 
 	function getAllDataLux(){
-		$sql = "SELECT lux, waktu FROM data_sensor";
+		$sql = "SELECT lux, waktu FROM data_sensor ORDER BY waktu ASC";
 		$query = mysqli_query($this->conn, $sql);
 		return mysqli_fetch_all($query, MYSQLI_ASSOC);
 	}
