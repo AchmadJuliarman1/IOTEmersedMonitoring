@@ -36,6 +36,20 @@ class Database{
 		return $this->query($result);
 	}
 
+	function getHumidityIOT(){
+		$sql = "SELECT humidity FROM data_sensor WHERE HOUR(WAKTU) = 7 OR HOUR(WAKTU)  = 13 OR HOUR(WAKTU) = 16;";
+		$query = mysqli_query($this->conn, $sql);
+		$result = mysqli_fetch_all($query);
+		return $this->query($result);
+	}
+
+	function getLuxIOT(){
+		$sql = "SELECT lux FROM data_sensor WHERE HOUR(WAKTU) = 7 OR HOUR(WAKTU)  = 13 OR HOUR(WAKTU) = 16;";
+		$query = mysqli_query($this->conn, $sql);
+		$result = mysqli_fetch_all($query);
+		return $this->query($result);
+	}
+
 	function getAllData(){
 		$sql = "SELECT * FROM data_sensor";
 		$query = mysqli_query($this->conn, $sql);

@@ -34,8 +34,6 @@ $label = implode(",", $quotedDates);
   <canvas id="luxChart"></canvas>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
   const ctx1 = document.getElementById('co2Chart');
   const ctx2 = document.getElementById('humidityChart');
