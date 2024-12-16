@@ -5,35 +5,14 @@ include_once 'api/Database.php';
 $db = new Database("localhost", "root", "", "iot_emersed");
 
 // hosting
-// $db = new Database("localhost", "skripsia_iot_emersed", "", "skripsia_iot_emersed");
-$co2 = $db->getAllDataCo2();
-$humidity = $db->getAllDataHumidity();
-$lux = $db->getAllDataLux();
+// $db = new Database("localhost", "skripsia_iot_emersed", "ArmanSkripsian", "skripsia_iot_emersed");
+$co2 = implode(",", $db->getAllDataCo2());
+$humidity = implode(",", $db->getAllDataHumidity());
+$lux = implode(",", $db->getAllDataLux());
 
-$co2Data = array();
-$humidityData = array();
-$luxData = array();
-$waktu = array();
-foreach ($co2 as $c) {
-	array_push($co2Data, $c["co2"]);
-}
-
-foreach ($humidity as $h) {
-	array_push($humidityData, $h["humidity"]);
-}
-
-foreach ($lux as $l) {
-	array_push($luxData, $l["lux"]);
-}
 
 // label
-foreach ($co2 as $c) {
-	array_push($waktu, $c["waktu"]);
-}
-
-$co2Data = implode(",",$co2Data);
-$humidityData = implode(",",$humidityData);
-$luxData = implode(",",$luxData);
+$waktu = $db->getLabelWaktu();
 $quotedDates = array_map(function($date) {
     return "'" . $date . "'";
 }, $waktu);
@@ -44,15 +23,15 @@ $label = implode(",", $quotedDates);
 
 <div class="container d-flex flex-column" style="margin-left: 20vw;">
 <div class="chart-co2 my-4">
-	<canvas id="co2Chart"></canvas>
+  <canvas id="co2Chart"></canvas>
 </div>
 
 <div class="chart-humidity my-4">
-	<canvas id="humidityChart"></canvas>
+  <canvas id="humidityChart"></canvas>
 </div>
 
 <div class="chart-lux my-4">
-	<canvas id="luxChart"></canvas>
+  <canvas id="luxChart"></canvas>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -67,7 +46,7 @@ $label = implode(",", $quotedDates);
       labels: [<?= $label ?>],
       datasets: [{
         label: 'CO2',
-        data: [<?= $co2Data ?>],
+        data: [<?= $co2 ?>],
         borderWidth: 1
       }]
     },
@@ -86,7 +65,7 @@ $label = implode(",", $quotedDates);
       labels: [<?= $label ?>],
       datasets: [{
         label: 'Humidity',
-        data: [<?= $humidityData ?>],
+        data: [<?= $humidity ?>],
         borderWidth: 1
       }]
     },
@@ -105,7 +84,7 @@ $label = implode(",", $quotedDates);
       labels: [<?= $label ?>],
       datasets: [{
         label: 'LUX',
-        data: [<?= $luxData ?>],
+        data: [<?= $lux ?>],
         borderWidth: 1
       }]
     },
