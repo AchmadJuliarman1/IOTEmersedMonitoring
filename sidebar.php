@@ -40,7 +40,7 @@ $file_name = explode('/', $_SERVER['PHP_SELF'])[2];
       color: black;
     }
     .nav:hover> :not(:hover) {
-      filter:blur(0.8px);
+      filter:blur(0.4px);
       opacity: 0.6;
       transition: 0.5s;
     }
