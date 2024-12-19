@@ -19,6 +19,14 @@ $quotedDates = array_map(function($date) {
 // Menggabungkan kembali array dengan koma
 $label = implode(",", $quotedDates);
 
+// label lux
+$waktuLux = $db->getWaktuLux();
+$quotedDates = array_map(function($date) {
+    return "'" . $date . "'";
+}, $waktuLux);
+// Menggabungkan kembali array dengan koma
+$labelLux = implode(",", $quotedDates);
+
 ?>
 
 <div class="container d-flex flex-column" style="margin-left: 20vw;">
@@ -79,7 +87,7 @@ $label = implode(",", $quotedDates);
   new Chart(ctx3, {
     type: 'line',
     data: {
-      labels: [<?= $label ?>],
+      labels: [<?= $labelLux ?>],
       datasets: [{
         label: 'LUX',
         data: [<?= $lux ?>],

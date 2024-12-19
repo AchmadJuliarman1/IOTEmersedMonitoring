@@ -71,12 +71,18 @@ class Database{
 	}
 
 	function getAllDataLux(){
-		$sql = "SELECT lux, waktu FROM data_sensor ORDER BY waktu ASC";
+		$sql = "SELECT lux, waktu FROM data_sensor WHERE HOUR(WAKTU) = 7  ORDER BY waktu ASC";
 		$query = mysqli_query($this->conn, $sql);
 		$result =  mysqli_fetch_all($query);
 		return $this->query($result);
 	}
 
+	function getWaktuLux(){
+		$sql = "SELECT waktu FROM data_sensor WHERE HOUR(waktu) = 7 ORDER BY waktu ASC";
+		$query = mysqli_query($this->conn, $sql);
+		$result =  mysqli_fetch_all($query);
+		return $this->query($result);
+	}
 	function getRealTime(){
 		$sql = "SELECT * FROM realtime";
 		$query = mysqli_query($this->conn, $sql);
