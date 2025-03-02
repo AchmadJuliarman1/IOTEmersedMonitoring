@@ -29,22 +29,25 @@
       <img src="icons/waktu.png" style="width: 2vw ;"> <h6 class="px-4" id="waktu"></h6> 
     </div>
     <div class="d-flex mx-4 align-items-center mt-2">
-      <img src="icons/co2.png" style="width: 4.5vw ;"> <h2 class="px-4" id="co2"></h2> 
+      <img src="icons/co2.png" style="width: 4vw ;"> <h2 class="px-4" id="co2"></h2> 
     </div>
     <div class="d-flex mx-4 align-items-center mt-2">
-      <img src="icons/humidity.png" style="width: 4.5vw ;"> <h2 class="px-4" id="humidity"></h2>
+      <img src="icons/humidity.png" style="width: 4vw ;"> <h2 class="px-4" id="humidity"></h2>
     </div>
     <div class="d-flex mx-4 align-items-center mt-2">
-      <img src="icons/light.png" style="width: 4.5vw ;"> <h2 class="px-4" id="lux"></h2>
+      <img src="icons/suhu.png" style="width: 4vw ;"> <h2 class="px-4" id="suhu"></h2>
     </div>
     <div class="d-flex mx-4 align-items-center mt-2">
-      <img src="icons/mist-maker.png" style="width: 4.5vw ;"> <h2 class="px-4" id="mist-maker"></h2>
+      <img src="icons/light.png" style="width: 4vw ;"> <h2 class="px-4" id="lux"></h2>
     </div>
     <div class="d-flex mx-4 align-items-center mt-2">
-      <img src="icons/solenoid.png" style="width: 4.5vw ;"> <h2 class="px-4" id="solenoid"></h2>
+      <img src="icons/mist-maker.png" style="width: 4vw ;"> <h2 class="px-4" id="mist-maker"></h2>
     </div>
     <div class="d-flex mx-4 align-items-center mt-2">
-      <img src="icons/lamp.png" style="width: 4.5vw ;"> <h2 class="px-4" id="lamp"></h2>
+      <img src="icons/solenoid.png" style="width: 4vw ;"> <h2 class="px-4" id="solenoid"></h2>
+    </div>
+    <div class="d-flex mx-4 align-items-center mt-2">
+      <img src="icons/lamp.png" style="width: 4vw ;"> <h2 class="px-4" id="lamp"></h2>
     </div>
   </div>
 </div>
@@ -63,6 +66,7 @@
         console.log(data[0])
         document.getElementById("co2").innerHTML = 'CO 2 : ' + data[0].co2 + ' PPM'
         document.getElementById("humidity").innerHTML = 'Humidity : ' + data[0].humidity + ' %'
+        // document.getElementById("suhu").innerHTML = 'Suhu : ' + data[0].suhu + ' °C'
         document.getElementById("lux").innerHTML = 'Intensitas Cahaya : ' + data[0].lux + ' lx'
         document.getElementById("waktu").innerHTML = data[0].waktu
         const waktu = new Date(data[0].waktu);
