@@ -90,7 +90,7 @@ class Database{
 		$sql = "SELECT co2, humidity, suhu, lux, waktu FROM log_data
 		WHERE HOUR(waktu) IN (8, 12, 16)
 		AND MINUTE(waktu) = 0
-		AND SECOND(waktu) <= 10;";
+		AND SECOND(waktu) <= 45 GROUP BY waktu ASC; "; // di set di waktu 45 karena ada yang mulai dari detik 45 tidak teu kenapa
 
 		$query = mysqli_query($this->conn, $sql);
 		$result =  mysqli_fetch_all($query, MYSQLI_ASSOC);

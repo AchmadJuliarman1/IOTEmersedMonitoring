@@ -26,7 +26,6 @@ for($i=0; $i<count($dataKonvensional); $i++){
   $groupedData[$dataKonvensional[$i]["hari_ke"]][] = $dataKonvensional[$i];
   $groupedData[$dataKonvensional[$i]["hari_ke"]][] = $resultDataIoT[$i];
 }
-// var_dump($groupedData); die();
 
 ?>
 <div class="container" style="margin-left: 18vw;">
