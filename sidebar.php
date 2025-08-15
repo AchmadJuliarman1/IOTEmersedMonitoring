@@ -85,6 +85,13 @@ $file_name = explode('/', $_SERVER['PHP_SELF'])[2];
             </div>
           </a>
         </li>
+        <li class="nav-item mb-2">
+          <a href="perbandingan-pertumbuhan.php" class="nav-link <?= $file_name == "perbandingan-pertumbuhan.php" ? "active" : ""; ?>">
+            <div class="d-flex align-items-center">
+              <img src="icons/input.png" style="width: 2vw ;"> <div class="px-1">Perbandingan pertumbuhan</div>
+            </div>
+          </a>
+        </li>
       </ul>
     </nav>
     
